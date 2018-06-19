@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import ListComponent from '../components/List.jsx';
-import { connect } from 'react-redux';
-import { addItem } from '../actions';
+// import { connect } from 'react-redux';
+// import { addItem } from '../actions';
+
 
 export class ListItem {
     constructor( id, value = '' ) {
@@ -10,7 +11,7 @@ export class ListItem {
     }
 }
 
-export class List extends Component {
+export default class List extends Component {
     constructor( props ) {
         super( props );
         this.state = {
@@ -30,7 +31,6 @@ export class List extends Component {
 
         //Item adding
         if ( itemIndex === newItems.length -1 ) {
-            this.props.dispatch(addItem(''));
             let lastItem = newItems[newItems.length - 1];
             newItems.push( new ListItem(lastItem.id + 1) );
         }
@@ -41,21 +41,29 @@ export class List extends Component {
 
     }
 
+    blurHandler(e) {
+        let newItems = [].concat(this.state.items);
+        const index = e.target.dataset.index;
+        newItems[index].value = e.target.value;
+        this.setState({
+            items: newItems
+        });
+    }
+
     render() {
         return (
             <ListComponent
-                header={this.props.header}
                 onInputChange={this.inputHandler}
                 items={this.state.items}
             />
         );
     }
-}
+} 
 
-const mapDispatchToProps = dispatch => ({
-    dispatch: (value) => {
-        dispatch(addItem(value))
-    }
-});
+// const mapDispatchToProps = dispatch => ({
+//     dispatch: (value) => {
+//         dispatch(addItem(value))
+//     }
+// });
 
-export default connect(() => ({}), mapDispatchToProps)(List);
+// export default connect(() => ({}), mapDispatchToProps)(List);

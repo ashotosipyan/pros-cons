@@ -8,10 +8,8 @@ const items = ( state = [], action) => {
                     value: action.value
                 }
             ];
-            break;
-    
         default:
-            break;
+            return state;
     }
 }
 
