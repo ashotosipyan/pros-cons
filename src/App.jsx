@@ -11,8 +11,8 @@ export default class App extends Component {
         return(
             <div className="App">
                 <Header title="Why I should eat McDonalds"/>
-                <List items={prosItems}/>
-                <List items={consItems}/>
+                <List header="Pros" items={prosItems}/>
+                <List header="Cons" items={consItems}/>
             </div>
         )
     }

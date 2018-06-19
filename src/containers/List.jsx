@@ -50,6 +50,7 @@ export default class List extends Component {
     render() {
         return (
             <ListComponent
+                header={this.props.header}
                 onInputChange={this.inputHandler}
                 items={this.state.items}
             />

@@ -1,9 +1,9 @@
 import React from 'react';
 
-export  default ( { items , onInputChange } ) => (
+export  default ( { header, items , onInputChange } ) => (
     <div className="list">
         <div className="list-header">
-            Pros
+            {header}
         </div>
         <div className="list-items">
             {items.map( ( item, index ) => (
