@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './components/App.jsx';
+import Pros from './components/Pros.jsx';
 
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(<Pros />, document.getElementById('root'));
