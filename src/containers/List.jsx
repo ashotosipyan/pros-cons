@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import ListComponent from '../components/List.jsx';
+import { connect } from 'react-redux';
+import { addItem } from '../actions';
 
 export class ListItem {
     constructor( id, value = '' ) {
@@ -8,7 +10,7 @@ export class ListItem {
     }
 }
 
-export default class List extends Component {
+export class List extends Component {
     constructor( props ) {
         super( props );
         this.state = {
@@ -28,6 +30,7 @@ export default class List extends Component {
 
         //Item adding
         if ( itemIndex === newItems.length -1 ) {
+            this.props.dispatch(addItem(''));
             let lastItem = newItems[newItems.length - 1];
             newItems.push( new ListItem(lastItem.id + 1) );
         }
@@ -36,15 +39,6 @@ export default class List extends Component {
             items: newItems
         });
 
-    }
-
-    blurHandler(e) {
-        let newItems = [].concat(this.state.items);
-        const index = e.target.dataset.index;
-        newItems[index].value = e.target.value;
-        this.setState({
-            items: newItems
-        });
     }
 
     render() {
@@ -57,3 +51,11 @@ export default class List extends Component {
         );
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    dispatch: (value) => {
+        dispatch(addItem(value))
+    }
+});
+
+export default connect(() => ({}), mapDispatchToProps)(List);
