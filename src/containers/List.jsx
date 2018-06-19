@@ -23,14 +23,16 @@ export default class List extends Component {
         let newItems = [].concat(this.state.items);
         const itemIndex =  parseInt(e.target.dataset.index);
         newItems[itemIndex].value = e.target.value;
-        
+
         //Item removing
         if ( !e.target.value.length && this.state.items.length > 1 ) {
+            console.log('itemIndex', itemIndex);
+            console.log('new', newItems);
             newItems.splice(itemIndex, 1);
         }
 
         //Item adding
-        if ( itemIndex === newItems.length -1 ) {
+        if ( itemIndex === newItems.length - 1 ) {
             let lastItem = newItems[newItems.length - 1];
             newItems.push( new ListItem(lastItem.id + 1) );
         }
@@ -41,18 +43,10 @@ export default class List extends Component {
 
     }
 
-    blurHandler(e) {
-        let newItems = [].concat(this.state.items);
-        const index = e.target.dataset.index;
-        newItems[index].value = e.target.value;
-        this.setState({
-            items: newItems
-        });
-    }
-
     render() {
         return (
             <ListComponent
+                header={this.props.header}
                 onInputChange={this.inputHandler}
                 items={this.state.items}
             />
