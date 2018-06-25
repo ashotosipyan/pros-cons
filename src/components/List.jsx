@@ -1,6 +1,6 @@
 import React from 'react';
 
-export  default ( { header, items , onInputChange } ) => (
+export  default ( { header, items , addItem } ) => (
     <div className="list">
         <div className="list-header">
             {header}
@@ -9,7 +9,7 @@ export  default ( { header, items , onInputChange } ) => (
             {items.map( ( item, index ) => (
                 <div className="item" key={index}>
                     <label>{index+1}.</label>
-                    <input type="text" onInput={onInputChange} data-index={index} value={item.value}/>
+                    <input type="text" onInput={() => addItem(item.value)} data-index={index} />
                 </div>
             ))}
         </div>

@@ -1,6 +1,8 @@
+import ADD_ITEM from '../actions';
+
 const items = ( state = [], action) => {
     switch (action.type) {
-        case 'ADD_ITEM':
+        case ADD_ITEM:
             return [
                 ...state,
                 {
