@@ -8,7 +8,7 @@ export default class App extends Component {
             <div className="App">
                 <Header title="Why I should eat McDonalds"/>
                 <List header="Pros" />
-                <List header="Cons" />
+                {/* <List header="Cons" /> */}
             </div>
         )
     }
