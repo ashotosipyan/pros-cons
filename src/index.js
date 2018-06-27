@@ -10,7 +10,8 @@ import './index.css';
 const initialStore = {
     items: [{
         id: uniqid(),
-        value: ''
+        value: '',
+        index: '0'
     }]
 }
 

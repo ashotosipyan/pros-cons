@@ -10,8 +10,8 @@ export const addItem = (value, index) => ({
     index
 });
 
-export const deleteItem = id => ({
+export const deleteItem = (id, index) => ({
     type: DELETE_ITEM,
     id,
-    items: store.getState().items
+    index
 });

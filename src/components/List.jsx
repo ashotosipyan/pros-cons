@@ -12,10 +12,15 @@ export  default ( { header, items , addItem, deleteItem } ) => (
                     <label>{index+1}.</label>
                     <input 
                         type="text" 
-                        onChange={(e) => addItem(e.target.value, e.target.dataset.index)}
-                        // value={item.value}
-                        // defaultValue={item.value}
-                        data-index={index} 
+                        onChange={(e) => {
+                                if(!e.target.value.length){
+                                    deleteItem(item.id, e.target.dataset.index)
+                                }else{
+                                    addItem(e.target.value, e.target.dataset.index)
+                                }
+                            }
+                        }
+                        data-index={index + 1} 
                     />
                 </div>
             ))}

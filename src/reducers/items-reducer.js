@@ -5,7 +5,7 @@ const items = ( state = [], action) => {
         case ADD_ITEM:
             let stateLength = state.length;
             let dataIndex = parseInt(action.index);
-            if(stateLength === dataIndex + 1){
+            if(stateLength === dataIndex){
                 return [
                     ...state,
                     {
@@ -16,12 +16,13 @@ const items = ( state = [], action) => {
                 ];
             }
         case DELETE_ITEM:
-            let currentInputId = state.map((id) => {
-                console.log(id);
-                return id
+            const x = state.map((item) => {
+                if(item.id === action.id){
+                    return 
+                }
             });
-            console.log(currentInputId);
-            console.log('reducer tex', state);
+            console.log(x);
+            return [...state];
         default:
             return state;
     }

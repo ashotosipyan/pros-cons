@@ -34,7 +34,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     addItem: (inputValue, index) => dispatch(addItem(inputValue, index)),
-    deleteItem: (id) => dispatch(deleteItem(id))
+    deleteItem: (id, index) => dispatch(deleteItem(id, index))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListComponent);
