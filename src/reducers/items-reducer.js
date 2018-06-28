@@ -16,9 +16,10 @@ const items = ( state = [], action) => {
                 ];
             }
         case DELETE_ITEM:
-            const x = state.map((item) => {
+            const x = state.map((item, index) => {
                 if(item.id === action.id){
-                    return 
+                    // console.log(index);
+                    return index; 
                 }
             });
             console.log(x);
